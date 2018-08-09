@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-import './App.css';
-
 import store from './redux';
 import { Provider } from 'react-redux';
-import Header from './Header';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
+
+import { Container } from 'semantic-ui-react';
 
 import Home from './screens/Home';
 import Admin from './screens/Admin';
@@ -18,18 +17,12 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
-
+          <Container>
             <Route exact path='/' component={Home}/>
             <Route path='/admin' component={Admin}/>
             <Route path='/restrito' component={Restrito}/>
             <Route path='/login' component={Login}/>
-
-            <Header/>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
-          </div>
+          </Container>
         </Router>
       </Provider>
     );
